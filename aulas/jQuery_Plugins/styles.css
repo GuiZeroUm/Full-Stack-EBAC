@@ -13,8 +13,15 @@
 
 header {
     background-color: #192e56;
-    padding: 1rem 0;
+    padding-top: 1rem;
     color: #fff;
+}
+
+header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
 }
 
 nav {
@@ -34,4 +41,16 @@ nav li {
 nav li a {
     color: #fff;
     text-decoration: none;
+}
+
+.menu-hamburguer {
+    width: 2rem;
+}
+
+.menu-hamburguer span {
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    display: block;
+    margin-bottom: 4px;
 }

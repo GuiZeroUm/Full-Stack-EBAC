@@ -7,12 +7,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <title>EBAC motors</title>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>EBAC motors</h1>
+            <div class="menu-hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
         <nav>
             <div class="container">
@@ -33,5 +39,22 @@
             </div>
         </nav>
     </header>
+
+    <div id="carousel-imagens">
+        <img src="./images/slide1.png">
+        <img src="./images/slide2.png">
+        <img src="./images/slide3.png">
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#carousel-imagens').slick({
+                autoplay: true,
+            });
+        })
+    </script>
 </body>
 </html>
