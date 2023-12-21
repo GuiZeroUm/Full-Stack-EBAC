@@ -15,13 +15,20 @@ html {
     margin: 0 auto;
 }
 
-header {
+header, footer {
     background-color: #192e56;
     padding-top: 1rem;
     color: #fff;
 }
 
-header > .container {
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+header > .container, footer > .container {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 1rem;
@@ -66,13 +73,96 @@ nav li a {
 
 #sobre-a-loja img {
     max-width: 400px;
-    margin-right: 24px;
+    margin-right: 1.5rem;
 }
 
 section {
-    padding: 48px 0;
+    padding: 3rem 0;
 }
 
 section h2 {
     margin-bottom: 1rem;
+}
+
+.lista-veiculos {
+    flex-wrap: wrap;
+}
+
+.lista-veiculos li {
+    list-style: none;
+    max-width: 30%;
+    margin-bottom: 1.5rem;
+}
+
+.lista-veiculos li img {
+    max-width: 100%;
+}
+
+.lista-veiculos li h3 {
+    margin: 1rem 0;
+}
+
+.item-central {
+    margin: 0 5%;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    border: none;
+    background-color: #119759;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: italic;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.price {
+    margin: 1rem 0;
+    display: block;
+}
+
+.price del {
+    color: #b1b0b0;
+    font-size: 14px;
+}
+
+.form-campo {
+    margin-bottom: 1rem;
+}
+
+.form-campo label {
+    font-weight: bold;
+    display: block;
+}
+
+.form-campo input, .form-campo textarea {
+    width: 100%;
+    display: block;
+    padding: 0.5rem;
+}
+
+.form-campo textarea {
+    resize: none;
+    height: 120px;
+}
+
+form {
+    max-width: 360px;
+}
+
+form button {
+    max-width: 120px;
+}
+
+footer li {
+    list-style: none;
+    margin-left: 1rem;
+}
+
+footer li img {
+    height: 2rem;
 }
