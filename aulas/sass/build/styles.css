@@ -1,24 +1,52 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
 body {
   background-color: #eee;
 }
 
-header {
-  background-color: #eee;
-}
-header h1 {
-  color: #111;
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-button {
-  padding: 1rem;
-  background-color: #111;
-  color: #eee;
-}
-button:hover {
+header {
+  padding: 1rem 0;
   background-color: yellow;
+  text-align: center;
 }
-button.sucesso {
-  background-color: green;
+
+.form-container {
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-container form {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 40px;
+}
+.form-container form input {
+  padding: 0.5rem;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+.form-container form button {
+  padding: 0.5rem;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
