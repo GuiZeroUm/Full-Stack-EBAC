@@ -2,8 +2,10 @@
 const gulp = require('gulp');
 
 function funcaoPadrao(callback) {
-    console.log ('executando via gulp');
-    callback();
+    setTimeout(function() {
+        console.log ('executando via gulp');
+        callback();
+    }, 2000)
 }
 
 //função publica (tem callback)
@@ -17,6 +19,6 @@ function dizOi(callback) {
 function dizTchau() {
     console.log('tchau gulp');
 }
-//fazendo exportação em série com o gulp.series
-exports.default = gulp.series(funcaoPadrao, dizOi);
+//fazendo exportação em paralela com o gulp.parallel
+exports.default = gulp.parallel(funcaoPadrao, dizOi);
 exports.dizOi = dizOi;
