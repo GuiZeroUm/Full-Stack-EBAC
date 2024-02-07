@@ -2,6 +2,22 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const obfuscate = require('gulp-obfuscate');
+const imagemin = require('gulp-imagemin');
+
+function comprimeImagens() {
+    return gulp.src('./src/img/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./build/img'))
+}
+
+function comprimeJavaScript() {
+    return gulp.src('./src/scripts/*.js')
+        .pipe(uglify())
+        .pipe(obfuscate())
+        .pipe(gulp.dest('./build/scripts'))
+}
 
 function compilaSass() {
     return gulp.src('./src/styles/styles.scss')
@@ -11,28 +27,8 @@ function compilaSass() {
         .pipe(gulp.dest('./build/styles'));
 }
 
-function funcaoPadrao(callback) {
-    setTimeout(function() {
-        console.log ('executando via gulp');
-        callback();
-    }, 2000)
-}
-
-//função publica (tem callback)
-function dizOi(callback) {
-    console.log('olá gulp');
-    dizTchau();
-    callback();
-}
-
-//função privada (não tem callback)
-function dizTchau() {
-    console.log('tchau gulp');
-}
-//fazendo exportação em paralela com o gulp.parallel
-exports.default = gulp.parallel(funcaoPadrao, dizOi);
-exports.dizOi = dizOi;
-exports.sass = compilaSass;
-exports.watch = function() {
+exports.default = function() {
     gulp.watch('./src/styles/*.scss', {ignoreInitial: false}, gulp.series(compilaSass));
+    gulp.watch('./src/scripts/*.js', {ignoreInitial: false}, gulp.series(comprimeJavaScript));
+    gulp.watch('./src/img/*', {ignoreInitial: false}, gulp.series(comprimeImagens));
 }
