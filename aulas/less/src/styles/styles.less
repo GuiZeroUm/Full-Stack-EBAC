@@ -16,13 +16,20 @@
 body {
     background-color: #colors[backgroundColor];
     color: #colors[textColor];
-    
+}
+
+li {
+    list-style: none;
 }
 
 .container {
     max-width: 960px;
     width: 100%;
     margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
     @media @breakpointTablet {
         max-width: 80%;
@@ -36,7 +43,7 @@ body {
 }
 
 header {
-    padding: 24px;
+    padding-bottom: 24px;
 
     .profile-avatar {
         height: 96px;
@@ -78,6 +85,30 @@ header {
             transition: all ease 0.3s;
             &:hover {
                 transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.projects-list {
+    margin-top: 32px;
+    &-item {
+        a {
+            text-decoration: none;
+            background-color: #colors[buttonColor];
+            display: block;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+            color: #colors[textColor];
+            font-weight: bold;
+            border-radius: 30px;
+            border: 2px solid #colors[buttonColor];
+            transition: all ease .5s;
+
+            &:hover {
+                color: #colors[buttonColor];
+                background-color: transparent;
             }
         }
     }
