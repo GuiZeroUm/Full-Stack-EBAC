@@ -1,0 +1,110 @@
+@import "./maps.less";
+@breakpointMobile: ~"(max-width: 767px)";
+@breakpointTablet: ~"(min-width: 768px) and (max-width: 1023px)";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    background-color: #colors[BackgroundColor];
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #colors[BackgroundColorBlue];
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .menu {
+        display: flex;
+    
+        li {
+            font-weight: bold;
+            margin-left: 1.5rem;
+    
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+section {
+    .products {
+        padding: 3.5rem 0;
+        display: grid;
+        grid-template-columns: repeat(3, 32.66%);
+        column-gap: 1%;
+        row-gap: 4%;
+        width: 100%;
+
+        .product-item {
+            img {
+                width: 100%;
+                border-radius: 1rem;
+            }
+
+            .product-button {
+                display: block;
+                background-color: #colors[ButtonColor];
+                color: #fff;
+                text-align: center;
+                padding: 0.5rem 0;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: #colors[ButtonHover];
+                }
+            }
+        }
+    }
+}
+
+@media screen and (@breakpointTablet) {
+    .container {
+        max-width: 80%;
+    }
+
+    section {
+        .products {
+            grid-template-columns: repeat(2, 48.5%);
+            column-gap: 3%;
+        }
+    }
+}
+
+@media screen and (@breakpointMobile) {
+    section {
+        .products {
+            display: block;
+
+            .product-item {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
