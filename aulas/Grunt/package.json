@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "grunt": "grunt",
+    "build": "grunt build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +15,7 @@
     "grunt-concurrent": "^3.0.0",
     "grunt-contrib-less": "^3.0.0",
     "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "sass": "^1.70.0"
   }
 }

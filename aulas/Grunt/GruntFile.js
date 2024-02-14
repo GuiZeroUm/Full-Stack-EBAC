@@ -1,12 +1,10 @@
-const { set } = require("grunt");
-
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         less: {
             development: {
                 files: {
-                    'styles.css': 'styles.less'
+                    './dev/styles/styles.css': './src/styles/styles.less'
                 }
             },
             production: {
@@ -14,45 +12,21 @@ module.exports = function(grunt) {
                     compress: true,
                 },
                 files: {
-                    'styles.min.css': 'styles.less'
+                    './dist/styles/styles.min.css': './src/styles/styles.less'
                 }
             }
         },
-        sass: {
-            dist: {
-                options: {
-                    style: 'compressed'
-                },
-                files: {
-                    'styles2.css' : 'styles.scss'
-                }
+        watch: {
+            less: {
+                files: ['./src/styles/**/*.less'],
+                tasks: ['less:development']
             }
-        },
-        concurrent: {
-            target: ['helloWorld', 'less', 'sass', 'tarefaDemorada']
         }
     })
 
-    grunt.registerTask('helloWorld', function() {
-        const done = this.async();
-        setTimeout(function() {
-            console.log('Hello World');
-            done();
-        }, 3000);
-    })
-
-    grunt.registerTask('tarefaDemorada', function() {
-        const done = this.async();
-        setTimeout(function() {
-            console.log('tarefa Demorada');
-            done();
-        }, 3000);
-    })
-
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['concurrent'])
-        
+    grunt.registerTask('default', ['watch'])
+    grunt.registerTask('build', ['less:production'])
 }
