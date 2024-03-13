@@ -22,19 +22,50 @@ $(document).ready(function() {
         $(botao).find('i').addClass('d-none')
         $(botao).find('span').removeClass('d-none')
 
-        $.ajax(endpoint).done(function(respostaDaRequisição) {
-            const logradouro = respostaDaRequisição.logradouro
-            const bairro = respostaDaRequisição.bairro
-            const cidade = respostaDaRequisição.localidade
-            const estado = respostaDaRequisição.uf
+        // Método utilizando ajax
+        // $.ajax(endpoint).done(function(respostaDaRequisição) {
+        //     const logradouro = respostaDaRequisição.logradouro
+        //     const bairro = respostaDaRequisição.bairro
+        //     const cidade = respostaDaRequisição.localidade
+        //     const estado = respostaDaRequisição.uf
+        //     const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`
+        //     $('#endereco').val(endereco)
+
+        //     setTimeout(function() {
+        //         $(botao).find('i').removeClass('d-none')
+        //         $(botao).find('span').addClass('d-none')
+        //     }, 4000)
+        // })
+
+        // Método utilizando fetch API
+        fetch(endpoint)
+        .then(function(respostaDaRequisição) {
+            return respostaDaRequisição.json()
+        })
+        .then(function(json) {
+            const logradouro = json.logradouro
+            const bairro = json.bairro
+            const cidade = json.localidade
+            const estado = json.uf
             const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`
             $('#endereco').val(endereco)
-
+        })
+        .catch(function(erro) {
+            alert('Ocorreu um erro ao buscar o endereço, tente novamente mais tarde.')
+        })
+        .finally(function() {
             setTimeout(function() {
                 $(botao).find('i').removeClass('d-none')
                 $(botao).find('span').addClass('d-none')
-            }, 4000)
-
+            }, 1000)
         })
     })
-})
+
+    $('#formulario-pedido').submit(function(evento) {
+        evento.preventDefault();
+        
+        if ($('#nome').val().length == 0) {
+            throw new Error('Digite o nome');
+        }
+    })
+}) 
