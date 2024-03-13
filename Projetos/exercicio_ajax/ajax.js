@@ -11,15 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fetch(link)
     .then(function(res) {
+    if(res.ok){
         return res.json();
+    }
+    throw new Error();
     })
     .then(function(json) {
-        nameElement.innerHTML = json.name
-        usernameElement.innerHTML = json.login
-        avatarElement.src = json.avatar_url
-        reposElement.innerHTML = json.public_repos
-        followersElement.innerHTML = json.followers
-        followingElement.innerHTML = json.following
-        linkElement.href = json.html_url
+    nameElement.innerHTML = json.name
+    usernameElement.innerHTML = json.login
+    avatarElement.src = json.avatar_url
+    reposElement.innerHTML = json.public_repos
+    followersElement.innerHTML = json.followers
+    followingElement.innerHTML = json.following
+    linkElement.href = json.html_url
+    })
+    .catch(function(error){
+    alert("Erro na API")
     })
 })
