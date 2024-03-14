@@ -36,3 +36,6 @@ const carroDaMaria2 = new Carro('ka', 'Ford', 2021, 2020)
 
 console.log(carroDoJoao2)
 console.log(carroDaMaria2)
+
+//perguntando se carroDaMaria2 é uma instancia de Carro
+console.log(carroDaMaria2 instanceof Carro)
