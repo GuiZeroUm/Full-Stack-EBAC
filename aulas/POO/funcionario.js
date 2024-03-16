@@ -13,7 +13,7 @@ function Funcionario(nome, cargo, salario) {
     
     // pega salario (getters)
     this.getSalario = function() {
-        return `O salário de ${this.nome} é ${_salario}`
+        return _salario
     }
 
     this.dizCargo = function() {
@@ -22,18 +22,46 @@ function Funcionario(nome, cargo, salario) {
 
     //atribui salario (setters)
     this.setSalario = function(valor) {
-        if (typeof valor === Number) {
+        if (typeof valor === 'number') {
             _salario = valor
         }
+    }
+
+    this.aumento = function() {
+        const novoSalario = _salario * 1.1;
+        _salario = novoSalario
     }
 
     Pessoa.call(this, nome)
 }
 
+function Estagiario(nome) {
+    Funcionario.call(this, nome, 'Estagiário', 2000)
+
+    this.aumento = function() {
+        const novoSalario = this.getSalario() * 1.07;
+        this.setSalario(novoSalario)
+    }
+}
+
+function Gerente(nome) {
+    Funcionario.call(this, nome, 'Gerente', 10000)
+
+    this.aumento = function() {
+        const novoSalario = this.getSalario() * 1.15;
+        this.setSalario(novoSalario)
+    }
+}
+
 const Funcionario1 = new Funcionario('Maria', 'Dev', 5000)
-Funcionario1.dizOi()
-Funcionario1.dizCargo()
+const Funcionario2 = new Estagiario('Pedro')
+const Funcionario3 = new Gerente('Paula')
 
-Funcionario1.setSalario('mil') 
+Funcionario1.aumento()
+console.log(Funcionario1.getSalario())
 
-console.log (Funcionario1.getSalario())
+Funcionario2.aumento()
+console.log(Funcionario2.getSalario())
+
+Funcionario3.aumento()
+console.log(Funcionario3.getSalario())
