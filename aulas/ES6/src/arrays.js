@@ -58,6 +58,10 @@ function filtraAlunosDeBackEnd(aluno) {
     return aluno.curso === 'Back-End'
 }
 
+//filtrando com arrow function
+// caso tenhamos apenas um argumento, podemos omitir os parenteses
+const filtraAlunosBackend2 = aluno => aluno.curso == 'Backend'
+
 //filter. Filtra os elementos com base em nossa requisição
 const alunosDeBackEnd = alunos2.filter(filtraAlunosDeBackEnd)
 
