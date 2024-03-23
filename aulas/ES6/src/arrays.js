@@ -27,6 +27,7 @@ const maria = alunos2.find(function(item) {
 })
 
 console.log(maria)
+console.log('find aqui em cima -------------')
 
 // irá procurar o indice do valor que eu defini
 const IndiceDaMaria = alunos2.findIndex(function(item) {
