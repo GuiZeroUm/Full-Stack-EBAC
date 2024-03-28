@@ -1,47 +1,29 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  const nome = 'Guilherme'
+
+  const meuObj = {
+    nome: 'Guilherme',
+    animeFavorito: 'berserk'
+  }
+
+  function dizOi() {
+    return `${nome} diz oi`
+  }
+
+  const enderecoDaImagem = 'https://sm.ign.com/ign_br/screenshot/default/produtor-de-castlevania-quer-animar-berserk_tk9a.jpg'
+
+  const botaoEstaDesabilitado = true
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <h1>Olá {{ dizOi() }}</h1>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <button :disabled="botaoEstaDesabilitado">Teste</button>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <h1>Eu gosto de {{ meuObj.animeFavorito }}</h1>
+  <img :src="enderecoDaImagem" alt="">
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
