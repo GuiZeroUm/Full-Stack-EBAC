@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "grunt-contrib-less": "^3.0.0",
+    "grunt-contrib-uglify": "^5.2.2"
+  }
+}
